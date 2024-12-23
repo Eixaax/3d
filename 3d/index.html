@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script> 
+
+    <title>Document</title>
+</head>
+<body>
+    <button id="zoomButton">bobo</button>
+    <model-viewer id="modelViewer" 
+        src="scene.gltf" 
+        alt="A 3D model of a monitor" 
+        shadow-intensity="1" 
+        camera-controls  
+        camera-orbit="90deg 90deg 2.5m">
+    </model-viewer>
+
+    <script type="module"
+        src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+    </script>
+
+    <!-- Loads <model-viewer> for old browsers like IE11: -->
+    <script nomodule
+        src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+    </script>
+
+    <script>
+        // Select the button and model-viewer elements
+        const zoomButton = document.getElementById('zoomButton');
+        const modelViewer = document.getElementById('modelViewer');
+
+        // Variable to track the current zoom state
+        let isZoomedIn = false;
+
+        // Add an event listener to the button
+        zoomButton.addEventListener('click', () => {
+            if (isZoomedIn) {
+                // Restore camera orbit to default 2.5m
+                modelViewer.setAttribute('camera-orbit', '90deg 90deg 2.5m');
+                // Re-enable camera controls
+                modelViewer.setAttribute('camera-controls', '');
+            } else {
+                // Change the camera-orbit distance to 1.3m
+                modelViewer.setAttribute('camera-orbit', '90deg 90deg 1.3m');
+                // Remove camera controls to disable them
+                modelViewer.removeAttribute('camera-controls');
+            }
+
+            // Toggle the zoom state
+            isZoomedIn = !isZoomedIn;
+        });
+    </script>
+</body>
+</html>

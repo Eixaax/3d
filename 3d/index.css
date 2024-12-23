@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+model-viewer{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+button{
+    display: flex;
+    position: absolute;
+    height: 2em;
+    width: 3em;
+    background-color: red;
+    top: 1em;
+    right: 1em;
+    z-index: 2;
+    font-family: 'Source Code Pro', monospace; /* Monospace font for CMD look */
+
+}
+
+@media (max-width: 768px) {
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: black;
+    }
+
+    model-viewer{
+        transform: rotate(90deg);
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+    }
+}
