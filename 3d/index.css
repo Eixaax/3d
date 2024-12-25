@@ -1,12 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@400;700;900&family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
 }
 
-model-viewer{
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
+
+
+.landing-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make the parent container take full viewport height */
+    width: 100vw; /* Optional: full viewport width */
+    position: relative;
+    background-color: rgb(26, 46, 56);
+}
+.nav{
+    width: 70%;
+    position: fixed;
+    top: 0;
+    margin-top: 1em;
+    animation: fadedown 1s ease-out forwards; 
+}
+
+@keyframes fadedown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0; 
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1; /* End at fully visible */
+    }
+}
+
+.nav ul{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5em;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(86, 114, 129);
+    font-family: "Arvo", serif;
+    font-size: 1rem;
+
+}
+
+.nav ul i{
+    font-size: 2em;
+    color: rgb(86, 114, 129);
+}
+
+.circle {
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    background: linear-gradient(180deg, rgb(86, 114, 129), rgb(26, 46, 56)); /* Diagonal gradient */
+    border-radius: 50%;
+    opacity: 0; /* Initial opacity set to 0 */
+    animation: fadeIn 3s ease-out forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start from invisible */
+    }
+    to {
+        opacity: 1; /* End at fully visible */
+    }
+}
+
+.phone-div {
+    height: 600px;
+    width: 400px;
+    position: relative;
+    animation: slideFromTop 2s ease-out;
+    transform: scale(0.9);
+}
+
+@keyframes slideFromTop {
+    from {
+        transform: translateY(-100%) rotate(-90deg) translateX(90%) scale(1.5); /* Combine translateY and rotate */
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) rotate(0) translateX(0) scale(0.9); /* Combine translateY and rotate */
+        opacity: 1;
+    }
+}
+
+
+
+.phone-div model-viewer{
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease;
+    rotate: 10deg;
+}
+
+.phone-div model-viewer:hover{
+    transform: scale(1.1);
+}
+
+.userInput{
+    height: 100%
 }
 
 button{

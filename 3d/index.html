@@ -4,19 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script> 
-
-    <title>Document</title>
+    <title>Iphone</title>
 </head>
 <body>
-    <button id="zoomButton">bobo</button>
-    <model-viewer id="modelViewer" 
-        src="scene.gltf" 
-        alt="A 3D model of a monitor" 
-        shadow-intensity="1" 
-        camera-controls  
-        camera-orbit="90deg 90deg 2.5m">
-    </model-viewer>
+    <!--  -->
+    
+    <div class="landing-page">
+        <div class="nav">
+            <ul>
+                <a href="">Home</a>
+                <a href="">About Us</a>
+                <i class="fa-brands fa-apple"></i>
+                <a href="">Products</a>
+                <a href="">Contact</a>
+            </ul>
+        </div>
+        <div class="circle">
+
+        </div>
+        <div class="phone-div">
+            <model-viewer id="modelViewer" 
+            src="scene.gltf" 
+            alt="A 3D model of a monitor" 
+            shadow-intensity="2" 
+            camera-controls  
+            camera-orbit="-20deg 80deg " disable-zoom
+            disable-pan
+            auto-rotate
+            disable-camera-ui
+            reveal="auto">
+            </model-viewer>
+        </div>
+    </div>
 
     <script type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
@@ -27,31 +48,5 @@
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
     </script>
 
-    <script>
-        // Select the button and model-viewer elements
-        const zoomButton = document.getElementById('zoomButton');
-        const modelViewer = document.getElementById('modelViewer');
-
-        // Variable to track the current zoom state
-        let isZoomedIn = false;
-
-        // Add an event listener to the button
-        zoomButton.addEventListener('click', () => {
-            if (isZoomedIn) {
-                // Restore camera orbit to default 2.5m
-                modelViewer.setAttribute('camera-orbit', '90deg 90deg 2.5m');
-                // Re-enable camera controls
-                modelViewer.setAttribute('camera-controls', '');
-            } else {
-                // Change the camera-orbit distance to 1.3m
-                modelViewer.setAttribute('camera-orbit', '90deg 90deg 1.3m');
-                // Remove camera controls to disable them
-                modelViewer.removeAttribute('camera-controls');
-            }
-
-            // Toggle the zoom state
-            isZoomedIn = !isZoomedIn;
-        });
-    </script>
 </body>
 </html>
